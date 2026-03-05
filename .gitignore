@@ -1,0 +1,28 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# 环境变量（如有敏感信息不要提交）
+.env
+.env.local
+*.env
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# 其他
+*.log
+.cache/
