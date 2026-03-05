@@ -142,14 +142,6 @@ def process_images_and_build_epub(
         file_name = f"{images_dir}/img_{index}{ext}"
         index += 1
 
-        media_type = "image/jpeg"
-        if ext == ".png":
-            media_type = "image/png"
-        elif ext == ".gif":
-            media_type = "image/gif"
-        elif ext == ".webp":
-            media_type = "image/webp"
-
         item = epub.EpubImage(
             uid=f"img-{index}",
             file_name=file_name,
