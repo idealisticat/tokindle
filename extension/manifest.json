@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "TOKINDLE",
+  "version": "1.0.0",
+  "description": "Send current WeChat article page to TOKINDLE backend → EPUB in output/",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/128.png"
+    },
+    "default_title": "Convert to EPUB"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "https://*/"
+  ],
+  "icons": {
+    "128": "icons/128.png"
+  },
+  "options_ui": {
+    "page": "options.html"
+  }
+}

@@ -10,19 +10,31 @@ __pycache__/
 .eggs/
 dist/
 build/
+*.epub
 
-# 环境变量（如有敏感信息不要提交）
+# Environment / secrets
 .env
 .env.local
+.env.*.local
 *.env
 
-# IDE / 系统
+# IDE / editor
 .idea/
 .vscode/
-.DS_Store
 *.swp
 *.swo
 
-# 其他
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Project output (generated EPUBs; RPA reads from here)
+output/
+
+# Misc
 *.log
 .cache/
+.pytest_cache/
+.coverage
+htmlcov/
