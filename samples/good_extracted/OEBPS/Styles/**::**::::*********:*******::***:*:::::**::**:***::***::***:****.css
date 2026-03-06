@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "st";
+    src:  url("../Fonts/st.ttf"),
+        local("st"),
+        local("宋体"),
+        local("DK-SONGTI"),
+        local("STSongti"),
+        local("STSong"),
+        local("Song S"),
+        local("Songti"), 
+        local("Songti SC"), 
+        local("Songti TC");
+}
+@font-face {
+    font-family: "kt";
+    src:  url("../Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%3A%3A%2A%2A%3A%2A%2A%3A%3A%2A%3A%3A%3A%3A.ttf");
+}
+@font-face {
+    font-family: "ht";
+    src:  url("../Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%2A%3A%3A%3A.ttf");
+}
+@font-face {
+    font-family: "fs";
+    src:  url("../Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%3A%3A%3A%3A%2A%3A%3A%3A%2A%2A%2A%2A%2A.ttf");
+}
+@font-face {
+    font-family: "h2";
+    src:  url("../Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%3A%3A%2A%3A%2A%2A%2A%3A.ttf");     
+}
+@font-face {
+    font-family: "h3";
+    src:  url("../Fonts/h3.ttf");     
+}
+@font-face {
+    font-family: "fs2";
+    src:  url("../Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%3A%2A%2A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%3A%2A%3A%3A%3A%2A%3A.ttf");
+}
+@font-face{
+    font-family: "fzqys";
+    src:  url("../Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%2A%2A%2A%3A%3A%3A%2A%2A%3A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%2A%3A%3A%2A%3A%2A%3A%3A%2A%2A%2A.ttf");
+}

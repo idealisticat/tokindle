@@ -55,7 +55,13 @@ document.getElementById('convert').addEventListener('click', async () => {
       return;
     }
     if (data.success && data.path) {
-      show(`Saved: ${data.path}\nTitle: ${data.title || '-'}`);
+      let msg = `Saved: ${data.path}\nTitle: ${data.title || '-'}`;
+      if (data.email_sent) {
+        msg += '\nSent to Kindle.';
+      } else if (data.email_error) {
+        msg += `\nEmail: ${data.email_error}`;
+      }
+      show(msg);
     } else {
       show(JSON.stringify(data), true);
     }

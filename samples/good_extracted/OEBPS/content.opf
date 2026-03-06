@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="duokan-book-id">
+  <metadata xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:title>米德尔马契</dc:title>
+    <dc:creator>乔治·艾略特</dc:creator>
+    <dc:language>zh-CN</dc:language>
+    <meta name="duokan-body-font" content="DK-SONGTI"/>
+    <dc:identifier id="duokan-book-id">223</dc:identifier>
+    <meta name="cover" content="f10"/>
+    <meta name="Sigil version" content="0.9.10"/>
+    <dc:date xmlns:opf="http://www.idpf.org/2007/opf" opf:event="modification">2026-02-23</dc:date>
+  </metadata>
+  <manifest>
+    <item id="f0" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%3A%2A%2A%2A%3A%3A%2A%3A%3A%2A%2A%3A%2A%3A%2A%3A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f1" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f2" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f3" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f4" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f5" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f6" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%3A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f7" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%3A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f8" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%2A%2A%3A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%2A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f9" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%3A%3A%2A%2A%3A%3A%3A%2A%3A%2A%2A%3A%2A%3A%3A%3A%2A%2A%3A%2A%3A%3A%2A%2A%2A%2A%2A%2A.jpg" media-type="image/jpeg"/>
+    <item id="f10" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%3A%2A%2A%2A%3A%2A%2A%2A%3A%3A%3A%3A%2A%2A%3A%3A%3A%2A%3A%2A%3A%2A%3A%2A%2A%2A%3A%2A%3A%2A%2A%3A%3A%3A%3A%2A%2A%3A.jpg" media-type="image/jpeg" properties="cover-image"/>
+    <item id="f11" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%3A%2A%2A%2A%3A%2A%2A%2A%3A%3A%3A%3A%2A%2A%3A%3A%3A%2A%3A%2A%3A%2A%3A%2A%2A%2A%3A%2A%3A%2A%2A%3A%3A%3A%3A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f12" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%3A%2A%2A%2A%3A%2A%2A%2A%3A%3A%3A%3A%2A%2A%3A%3A%3A%2A%3A%2A%3A%2A%3A%2A%2A%2A%3A%2A%3A%2A%2A%3A%3A%3A%3A%2A%2A%3A~slim.jpg" media-type="image/jpeg"/>
+    <item id="f13" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%3A%2A%2A%3A%3A%2A%2A%3A%2A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f14" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%3A%3A%2A%3A%2A%2A%2A%2A%2A%2A%3A%3A%3A%2A%3A%2A%3A.jpg" media-type="image/jpeg"/>
+    <item id="f15" href="Styles/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%2A%2A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%2A%2A.css" media-type="text/css"/>
+    <item id="f16" href="Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%3A%3A%3A%3A%2A%3A%3A%3A%2A%2A%2A%2A%2A.ttf" media-type="application/x-font-ttf"/>
+    <item id="f17" href="Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%3A%2A%2A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%3A%2A%3A%3A%3A%2A%3A.ttf" media-type="application/x-font-ttf"/>
+    <item id="f18" href="Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%2A%2A%2A%3A%3A%3A%2A%2A%3A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%2A%3A%3A%2A%3A%2A%3A%3A%2A%2A%2A.ttf" media-type="application/x-font-ttf"/>
+    <item id="f19" href="Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%3A%3A%2A%3A%2A%2A%2A%3A.ttf" media-type="application/x-font-ttf"/>
+    <item id="f20" href="Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%2A%3A%3A%3A.ttf" media-type="application/x-font-ttf"/>
+    <item id="f21" href="Fonts/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%3A%3A%2A%2A%3A%2A%2A%3A%3A%2A%3A%3A%3A%3A.ttf" media-type="application/x-font-ttf"/>
+    <item id="f22" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%3A%3A%3A%3A%3A%2A%2A%2A%2A%3A%3A%2A%3A%3A%3A%3A%3A%3A%2A%3A%2A%3A%3A%2A%3A%2A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A.png" media-type="image/png"/>
+    <item id="f23" href="Styles/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%3A%3A%2A%3A%2A%2A%2A%3A%3A%3A%2A%3A%2A%3A%2A%3A.css" media-type="text/css"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="f25" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%3A%3A%3A%3A%3A%3A%2A%2A%2A%2A%3A%2A%3A%2A%2A%3A%3A%2A%3A%2A%2A%2A%2A%2A%3A%3A%2A%3A%3A%2A%3A%2A%2A%2A%3A%3A%2A.png" media-type="image/png"/>
+    <item id="f26" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%3A%3A%3A%3A%2A%3A%3A%2A%2A%2A%2A%2A%3A%2A.png" media-type="image/png"/>
+    <item id="f27" href="Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%3A%2A%2A%2A%2A%2A%2A%3A%3A%2A%2A%3A%3A.png" media-type="image/png"/>
+    <item id="f28" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f29" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f30" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f31" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f32" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f33" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f34" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f35" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f36" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f37" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f38" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f39" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%2A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f40" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%2A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f41" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f42" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f43" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f44" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f45" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f46" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f47" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f48" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f49" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f50" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f51" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f52" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f53" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f54" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%2A%3A%3A%3A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f55" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f56" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f57" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%3A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f58" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%3A%3A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f59" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%3A%3A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f60" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%3A%3A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f61" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f62" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f63" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f64" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f65" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f66" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f67" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f68" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f69" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f70" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f71" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f72" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f73" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f74" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%2A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f75" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f76" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f77" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f78" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f79" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%2A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f80" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%2A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f81" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f82" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f83" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%3A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f84" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%3A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f85" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f86" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%2A%3A%3A%3A%2A%3A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f87" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f88" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f89" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f90" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f91" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f92" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f93" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f94" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%2A%3A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f95" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%3A%2A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f96" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%2A%3A%2A%3A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f97" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%2A%3A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f98" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%2A%3A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f99" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%2A%3A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f100" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%2A%3A%3A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f101" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f102" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f103" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f104" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f105" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f106" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f107" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%2A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f108" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%2A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f109" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%2A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f110" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%2A%2A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f111" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f112" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f113" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%2A%2A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%2A%3A.xhtml" media-type="application/xhtml+xml"/>
+    <item id="f114" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%2A%2A%3A%2A%3A%3A%3A%3A%2A%2A%2A%2A%3A%2A%3A%2A%2A%3A%3A%2A%3A%3A%2A.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="f11" properties="duokan-page-fullscreen"/>
+    <itemref idref="f13"/>
+    <itemref idref="f114"/>
+    <itemref idref="f1"/>
+    <itemref idref="f28"/>
+    <itemref idref="f29"/>
+    <itemref idref="f30"/>
+    <itemref idref="f31"/>
+    <itemref idref="f32"/>
+    <itemref idref="f33"/>
+    <itemref idref="f34"/>
+    <itemref idref="f35"/>
+    <itemref idref="f36"/>
+    <itemref idref="f37"/>
+    <itemref idref="f38"/>
+    <itemref idref="f39"/>
+    <itemref idref="f2"/>
+    <itemref idref="f40"/>
+    <itemref idref="f41"/>
+    <itemref idref="f42"/>
+    <itemref idref="f43"/>
+    <itemref idref="f44"/>
+    <itemref idref="f45"/>
+    <itemref idref="f46"/>
+    <itemref idref="f47"/>
+    <itemref idref="f48"/>
+    <itemref idref="f49"/>
+    <itemref idref="f3"/>
+    <itemref idref="f50"/>
+    <itemref idref="f51"/>
+    <itemref idref="f52"/>
+    <itemref idref="f53"/>
+    <itemref idref="f54"/>
+    <itemref idref="f55"/>
+    <itemref idref="f56"/>
+    <itemref idref="f57"/>
+    <itemref idref="f58"/>
+    <itemref idref="f59"/>
+    <itemref idref="f60"/>
+    <itemref idref="f4"/>
+    <itemref idref="f61"/>
+    <itemref idref="f62"/>
+    <itemref idref="f63"/>
+    <itemref idref="f64"/>
+    <itemref idref="f65"/>
+    <itemref idref="f66"/>
+    <itemref idref="f67"/>
+    <itemref idref="f68"/>
+    <itemref idref="f69"/>
+    <itemref idref="f5"/>
+    <itemref idref="f70"/>
+    <itemref idref="f71"/>
+    <itemref idref="f72"/>
+    <itemref idref="f73"/>
+    <itemref idref="f74"/>
+    <itemref idref="f75"/>
+    <itemref idref="f76"/>
+    <itemref idref="f77"/>
+    <itemref idref="f78"/>
+    <itemref idref="f79"/>
+    <itemref idref="f80"/>
+    <itemref idref="f6"/>
+    <itemref idref="f81"/>
+    <itemref idref="f82"/>
+    <itemref idref="f83"/>
+    <itemref idref="f84"/>
+    <itemref idref="f85"/>
+    <itemref idref="f86"/>
+    <itemref idref="f87"/>
+    <itemref idref="f88"/>
+    <itemref idref="f89"/>
+    <itemref idref="f7"/>
+    <itemref idref="f90"/>
+    <itemref idref="f91"/>
+    <itemref idref="f92"/>
+    <itemref idref="f93"/>
+    <itemref idref="f94"/>
+    <itemref idref="f95"/>
+    <itemref idref="f96"/>
+    <itemref idref="f97"/>
+    <itemref idref="f98"/>
+    <itemref idref="f8"/>
+    <itemref idref="f99"/>
+    <itemref idref="f100"/>
+    <itemref idref="f101"/>
+    <itemref idref="f102"/>
+    <itemref idref="f103"/>
+    <itemref idref="f104"/>
+    <itemref idref="f105"/>
+    <itemref idref="f106"/>
+    <itemref idref="f107"/>
+    <itemref idref="f108"/>
+    <itemref idref="f109"/>
+    <itemref idref="f110"/>
+    <itemref idref="f111"/>
+    <itemref idref="f112"/>
+    <itemref idref="f113"/>
+    <itemref idref="f0"/>
+  </spine>
+  <guide>
+    <reference type="cover" title="Cover" href="Text/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%2A%3A%3A%2A%3A%3A%3A%2A%2A%2A%3A%2A%2A%2A%3A%3A%3A%3A%2A%2A%3A%3A%3A%2A%3A%2A%3A%2A%3A%2A%2A%2A%3A%2A%3A%2A%2A%3A%3A%3A%3A%2A%2A%3A.xhtml"/>
+  </guide>
+</package>

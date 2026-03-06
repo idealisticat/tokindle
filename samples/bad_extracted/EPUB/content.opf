@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="id" version="3.0" prefix="rendition: http://www.idpf.org/vocab/rendition/#">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <meta property="dcterms:modified">2026-03-06T22:03:39Z</meta>
+    <meta name="generator" content="Ebook-lib 0.20.0"/>
+    <dc:identifier id="id">tokindle-50c21fb6d1ad</dc:identifier>
+    <dc:title>日本设立三大AI芯片研发中心，力争2028年实现本土原型制造</dc:title>
+    <dc:language>en</dc:language>
+  </metadata>
+  <manifest>
+    <item href="images/img_0.jpg" id="img-1" media-type="image/jpeg"/>
+    <item href="images/img_1.jpg" id="img-2" media-type="image/jpeg"/>
+    <item href="images/img_2.jpg" id="img-3" media-type="image/jpeg"/>
+    <item href="images/img_3.jpg" id="img-4" media-type="image/jpeg"/>
+    <item href="images/img_4.jpg" id="img-5" media-type="image/jpeg"/>
+    <item href="chapter.xhtml" id="chapter_0" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="nav"/>
+    <itemref idref="chapter_0"/>
+  </spine>
+</package>

@@ -1,0 +1,206 @@
+body.fen {
+    background-image: url(../Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%3A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%3A%3A%3A%2A%3A%2A%2A%2A%2A%2A%2A%3A%3A%3A%2A%3A%2A%3A.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h1{
+    text-indent: 0em;
+    font-weight: normal;
+    line-height: 1.5;
+}
+h1.h1{
+    font-family: "fzqys","ZY-KAITI","kt";
+    color: #2e5b60;
+    text-align: center;
+    font-size: 1.3em;
+    margin: 0em 0em 2em 0em;
+}
+.h1kt {
+    font-family: "fs2","ZY-KAITI","kt";
+    font-size: 0.9em;
+}
+h1.h2{
+    font-family: "fzqys","ZY-XIAOBIAOSONG","h2";
+    font-size: 1.22em;
+    color: #2e5b60;
+    margin-top: 20%;
+    padding-top: 1.3em;
+    padding-bottom: 1.25em;
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 2px;
+}
+div.logo {
+    text-align: center;
+    text-indent: 0em;
+    duokan-text-indent: 0em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-right: 0em;
+    margin-left: 0em;
+}
+h2{
+    font-family: "fzqys","ZY-KAITI","kt";
+    text-indent: 0em;
+    font-weight: normal;
+    line-height: 1.3;
+    color: #2e5b60;
+    font-size: 1.27em;
+    text-align: center;
+    margin: 0em 0em 1.2em 0em;
+}
+blockquote {
+    margin: 1.2em 0 1.2em 0em;
+    padding: 0.25em 0.25em 0.25em 0.25em;
+    background-color: #f5f5f5;
+    line-height: 1.3;
+}
+blockquote p {
+    font-family: "ZY-FANGSONG","fs";
+    font-size: 1em;
+    margin: 0.5em 0;
+    color: #412938;   
+}
+.quote {
+    margin: 1.2em 0 1.2em 0em;
+    padding: 0.25em 0.25em 0.25em 0.25em;
+    background-color: #f5f5f5;
+    font-family: "ZY-FANGSONG","fs";
+    font-size: 1em;
+    color: #412938;
+}
+.center {
+   text-align: center!important;
+   text-indent: 0;
+}
+.no{
+    text-indent:0;
+    duokan-text-indent: 0em;
+}
+.right {
+    margin: 1em 0 1.2em 0em;
+    font-size: 0.98em;
+    text-align: right!important;
+}
+.kh {
+    font-size: 0.98em;
+    font-family: "ZY-KAITI","kt","楷体";
+    color: #412938;
+}
+html, body {
+   margin-top: 0;
+   margin-bottom: 0;
+   margin-left: 0;
+   margin-right: 0;
+   padding: 0;
+   text-align: justify;
+}
+body{font-family: "st";} 
+
+.cover {
+   text-align: center;
+   text-indent: 0;
+}
+p{
+   text-indent: 2em;
+   margin: 0.5em 0;
+   line-height: 1.3;
+   text-align: justify;
+   text-justify: inter-ideograph;
+   word-break: break-all;
+   letter-spacing: 0px;
+}
+.fs{font-family: "ZY-FANGSONG","fs";}
+.kt{font-family: "ZY-KAITI","kt","楷体";}
+
+body.copy {
+    background-image: url(../Images/%2A%2A%3A%3A%2A%2A%3A%3A%3A%3A%2A%2A%2A%2A%2A%2A%2A%3A%2A%2A%3A%3A%2A%2A%3A%3A%2A%2A%2A%3A%3A%2A%2A%2A%2A%3A%3A%3A%2A%2A%3A%3A%3A%2A%3A%2A%2A%3A%2A%3A%3A%3A%2A%2A%3A%2A%3A%3A%2A%2A%2A%2A%2A%2A.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.vol {
+    font-family: "ZY-HEITI","ht","黑体";
+    font-size: 0.96em;
+    text-indent: 0em;
+    text-align: center!important;
+    padding: 1em;
+    margin: 1.5em auto 1.3em auto;
+    color: #3B2735;
+}
+.bookname{
+    font-family: "ZY-XIAOBIAOSONG","h2";
+    font-size: 90%;
+    text-align: justify;
+    text-indent: 0em;
+    duokan-text-indent: 0em;
+    margin-top: 4em; 
+    color: #412938;
+}
+.cp {
+    font-family: "ZY-FANGSONG","fs";
+    font-size: 75%;
+    text-align: justify;
+    text-indent: -3em;
+    duokan-text-indent: -3em; 
+    margin: 0.7em 0 0.7em 3em;
+    color: #412938;
+}
+.cp1 {
+    font-family: "ZY-FANGSONG","fs";
+    font-size: 75%;
+    text-align: justify;
+    text-indent: 0em;
+    duokan-text-indent: 0em; 
+    margin: 0.7em 0 0.7em 3em;
+    color: #412938;
+}
+p.bottom{margin-bottom: 5em;}	 
+
+hr{
+    width: 100%;
+    height: 1px;
+    margin: 0.9em 0 0.9em 0;
+    border-style: none;
+    border-top: 1px dotted gray;
+    color: #A2906A;
+}
+a.duokan-footnote img{
+    width:0.65em;
+}
+hr.xian{
+    text-align: left;
+    duokan-text-align: left;
+    width: 60%;
+    height: 1px;
+    margin: 1.5em 0 1.5em -0.5em;
+    border-style: none;
+    border-top: 1px solid gray;
+}
+ol{
+    padding: 0;
+    list-style-type: none;
+    list-style-position: outside;
+}
+.duokan-footnote-content{
+    text-align: justify;
+    margin-left: 1em;
+}
+.footnote{
+    font-size: 0.95em;
+    line-height: 1.3;
+    font-family: "ZY-KAITI","kt","楷体";
+    margin: 0 0 0 0em;
+    text-indent: -1em;
+}
+a{color: black;}
+
+.image {  
+     text-align: center!important;
+     text-indent: 0em;
+     duokan-text-indent: 0em;
+     margin: 0.8em 0;
+}

@@ -1,22 +1,40 @@
 """
 TOKINDLE - Core FastAPI backend.
-Extract WeChat articles (from URL or raw HTML), generate EPUB, save to output/.
-An external RPA agent (e.g. OpenClaw) handles upload to Amazon.
+Extract WeChat articles (from URL or raw HTML), generate EPUB, save to output/,
+and send to Kindle via Gmail SMTP. All images are converted to JPEG to avoid Amazon E999.
 """
 
 import html
 import io
+import logging
+import os
 import re
+import smtplib
+import ssl
+import tempfile
 import traceback
 import uuid
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from pathlib import Path
 from typing import Optional
 
 import requests
 from bs4 import BeautifulSoup, Tag
+from dotenv import load_dotenv
 from ebooklib import epub
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, HTTPException, UploadFile
+from PIL import Image
 from pydantic import BaseModel
+
+load_dotenv()
+
+logger = logging.getLogger(__name__)
+_handler = logging.StreamHandler()
+_handler.setFormatter(logging.Formatter("%(levelname)s [TOKINDLE] %(message)s"))
+logger.addHandler(_handler)
+logger.setLevel(logging.INFO)
 
 app = FastAPI(
     title="TOKINDLE",
@@ -38,8 +56,6 @@ FETCH_HEADERS = {
 }
 FETCH_TIMEOUT = (15, 60)  # (connect, read) seconds
 IMAGE_TIMEOUT = (10, 45)
-
-_EXT_BY_HINT = {".png": ".png", ".gif": ".gif", ".webp": ".webp"}
 
 # ---------------------------------------------------------------------------
 # Request / response models
@@ -73,6 +89,68 @@ def save_epub(epub_bytes: bytes, title: str) -> str:
     return str(path)
 
 
+def send_to_kindle(epub_path: str, title: str) -> tuple[bool, Optional[str]]:
+    """
+    Send EPUB to Kindle via Gmail SMTP. Subject must be "Convert" for Kindle conversion.
+    Returns (success, error_message). Uses env: SMTP_SERVER, SMTP_PORT, SENDER_EMAIL,
+    SENDER_PASSWORD (Gmail App Password), KINDLE_EMAIL.
+    """
+    server = os.environ.get("SMTP_SERVER", "smtp.gmail.com").strip()
+    port = int(os.environ.get("SMTP_PORT", "587"))
+    sender = os.environ.get("SENDER_EMAIL", "").strip()
+    password = os.environ.get("SENDER_PASSWORD", "").strip()
+    kindle_email = os.environ.get("KINDLE_EMAIL", "").strip()
+    if not all([sender, password, kindle_email]):
+        msg = "SMTP not configured: set SENDER_EMAIL, SENDER_PASSWORD, KINDLE_EMAIL in .env"
+        logger.warning("TOKINDLE send skipped: %s", msg)
+        return False, msg
+    path = Path(epub_path)
+    if not path.is_file():
+        err = f"EPUB file not found: {epub_path}"
+        logger.error(err)
+        return False, err
+    try:
+        with open(path, "rb") as f:
+            epub_data = f.read()
+    except OSError as e:
+        err = f"Cannot read EPUB: {e}"
+        logger.error(err)
+        return False, err
+    msg = MIMEMultipart()
+    msg["Subject"] = "Convert"
+    msg["From"] = sender
+    msg["To"] = kindle_email
+    msg.attach(MIMEText("Sent from TOKINDLE.", "plain"))
+    attachment_filename = _safe_filename(title) + ".epub"
+    if attachment_filename == ".epub":
+        attachment_filename = "article.epub"
+    attachment = MIMEApplication(epub_data, _subtype="epub+zip")
+    attachment.add_header(
+        "Content-Disposition", "attachment", filename=attachment_filename
+    )
+    msg.attach(attachment)
+    try:
+        logger.info("TOKINDLE: Sending EPUB to Kindle (%s)...", kindle_email)
+        ctx = ssl.create_default_context()
+        with smtplib.SMTP(server, port) as smtp:
+            smtp.starttls(context=ctx)
+            smtp.login(sender, password)
+            smtp.sendmail(sender, [kindle_email], msg.as_string())
+        logger.info(
+            "TOKINDLE: sendmail() OK — message handed to %s. Check Gmail Sent & Kindle.",
+            server,
+        )
+        return True, None
+    except smtplib.SMTPException as e:
+        err = f"SMTP error: {e}"
+        logger.exception(err)
+        return False, err
+    except Exception as e:
+        err = f"Send to Kindle failed: {e}"
+        logger.exception(err)
+        return False, err
+
+
 # ---------------------------------------------------------------------------
 # HTTP helpers
 # ---------------------------------------------------------------------------
@@ -93,9 +171,72 @@ def download_image(url: str) -> bytes:
     return resp.content
 
 
+def _image_to_jpeg(raw_bytes: bytes) -> Optional[bytes]:
+    """
+    Convert any image (including WebP) to JPEG for EPUB. Kindle rejects WebP (E999).
+    Returns None if conversion fails (e.g. corrupt data); caller should skip the image.
+    """
+    try:
+        img = Image.open(io.BytesIO(raw_bytes))
+        if img.mode in ("RGBA", "P", "LA"):
+            img = img.convert("RGB")
+        elif img.mode != "RGB":
+            img = img.convert("RGB")
+        buf = io.BytesIO()
+        img.save(buf, format="JPEG", quality=90)
+        return buf.getvalue()
+    except Exception as e:
+        logger.warning("Image to JPEG conversion failed: %s", e)
+        return None
+
+
 # ---------------------------------------------------------------------------
 # HTML parsing
 # ---------------------------------------------------------------------------
+
+
+def _deep_clean_dom(root: Tag) -> None:
+    """Remove elements that Kindle's parser rejects (E999): script, style, iframe, video, audio,
+    noscript, svg, and WeChat custom elements (mp-*)."""
+    to_remove = (
+        "script", "style", "iframe", "video", "audio", "noscript", "svg",
+    )
+    for tag_name in to_remove:
+        for tag in root.find_all(tag_name):
+            tag.decompose()
+    for tag in root.find_all(True):
+        if tag.name and tag.name.startswith("mp-"):
+            tag.decompose()
+
+
+def _sanitize_links_and_styles(root: Tag) -> None:
+    """Replace javascript: links and strip external url() from style to avoid Kindle E999."""
+    for a in root.find_all("a", href=True):
+        h = (a["href"] or "").strip().lower()
+        if h in ("javascript:;", "javascript:"):
+            a["href"] = "#"
+    _URL_STYLE = re.compile(
+        r"background-image:\s*url\s*\(\s*[\'\"]?https?://[^\)]*\)\s*;?",
+        re.IGNORECASE,
+    )
+    for el in [root, *root.find_all(True)]:
+        style = el.get("style")
+        if not style:
+            continue
+        style = _URL_STYLE.sub("", style).strip().rstrip(";")
+        if style:
+            el["style"] = style
+        else:
+            del el["style"]
+
+
+def _to_xhtml_string(tag: Tag) -> str:
+    """Serialize tag to XHTML with self-closing img and br (Kindle E999 fix)."""
+    raw = str(tag)
+    # BeautifulSoup may output <img ...> and <br>; Amazon's parser requires <img ... /> and <br/>
+    raw = re.sub(r"<img(\s*[^>]*?)(?<!/)>", r"<img\1/>", raw)
+    raw = re.sub(r"<br(\s*[^>]*?)(?<!/)>", r"<br\1/>", raw)
+    return raw
 
 
 def _strip_hidden_styles(root: Tag) -> None:
@@ -174,16 +315,15 @@ def parse_raw_html(html_content: str) -> Tag:
 # ---------------------------------------------------------------------------
 
 
-def _guess_ext(url: str) -> str:
-    stem = url.split("?")[0].lower()
-    for suffix, ext in _EXT_BY_HINT.items():
-        if stem.endswith(suffix):
-            return ext
-    return ".jpg"
-
-
 def build_epub(title: str, content: Tag) -> bytes:
-    """Process images (data-src → download with Referer → embed) and return EPUB bytes."""
+    """
+    Process images (data-src → download with Referer → convert to JPEG) and return EPUB bytes.
+    All images are stored as .jpg to avoid Kindle E999 (WebP rejection).
+    DOM is deep-cleaned and serialized as strict XHTML for Amazon's parser.
+    """
+    _deep_clean_dom(content)
+    _sanitize_links_and_styles(content)
+
     book = epub.EpubBook()
     book.set_identifier(f"tokindle-{uuid.uuid4().hex[:12]}")
     book.set_title(title)
@@ -191,42 +331,55 @@ def build_epub(title: str, content: Tag) -> bytes:
 
     seen: dict[str, str] = {}
     idx = 0
-    for img in content.find_all("img"):
+    for img in list(content.find_all("img")):
         image_url = (img.get("data-src") or img.get("src") or "").strip()
-        if not image_url or image_url.startswith("data:"):
+        if not image_url:
+            continue
+        if image_url.startswith("data:"):
+            img.decompose()
             continue
         if image_url in seen:
             img["src"] = seen[image_url]
             img.attrs.pop("data-src", None)
             continue
         try:
-            data = download_image(image_url)
+            raw = download_image(image_url)
         except Exception:
             if img.get("data-src"):
                 img["src"] = image_url
             img.attrs.pop("data-src", None)
             continue
 
-        fname = f"images/img_{idx}{_guess_ext(image_url)}"
+        data = _image_to_jpeg(raw)
+        if not data:
+            if img.get("data-src"):
+                img["src"] = image_url
+            img.attrs.pop("data-src", None)
+            continue
+
+        fname = f"images/img_{idx}.jpg"
         idx += 1
         book.add_item(epub.EpubImage(uid=f"img-{idx}", file_name=fname, content=data))
         seen[image_url] = fname
         img["src"] = fname
         img.attrs.pop("data-src", None)
 
-    # EbookLib rejects <?xml …?> in Unicode strings, so omit it.
+    # Strict XHTML: self-closing img/br so Amazon's parser does not E999.
     title_esc = html.escape(title, quote=True)
+    body_inner = _to_xhtml_string(content)
     chapter_html = (
         '<!DOCTYPE html>\n'
         '<html xmlns="http://www.w3.org/1999/xhtml"'
         ' xmlns:epub="http://www.idpf.org/2007/ops">\n'
         f"<head><meta charset=\"utf-8\"/><title>{title_esc}</title></head>\n"
-        f"<body>\n{content}\n</body>\n</html>"
+        f"<body>\n{body_inner}\n</body>\n</html>"
     )
     chapter = epub.EpubHtml(title=title, file_name="chapter.xhtml", content=chapter_html)
     book.add_item(chapter)
     book.toc = (chapter,)
-    book.spine = ["nav", chapter]
+    # Do not reference "nav" in spine — EbookLib may not add nav to manifest for single-chapter
+    # books, and Kindle's parser (E999) fails when spine references a missing item.
+    book.spine = [chapter]
 
     buf = io.BytesIO()
     epub.write_epub(buf, book, {})
@@ -261,7 +414,7 @@ def ping():
 
 @app.post("/parse-url")
 def endpoint_parse_url(body: ParseUrlRequest):
-    """Fetch WeChat article → EPUB → save to output/ → return path."""
+    """Fetch WeChat article → EPUB → save to output/ → send to Kindle → return path."""
     try:
         title, epub_bytes = create_epub_from_url(body.url)
     except requests.RequestException as e:
@@ -273,12 +426,20 @@ def endpoint_parse_url(body: ParseUrlRequest):
             status_code=500,
             detail=f"Internal error: {type(e).__name__}: {e}\n\n{traceback.format_exc()}",
         )
-    return {"success": True, "path": save_epub(epub_bytes, title), "title": title}
+    path = save_epub(epub_bytes, title)
+    email_ok, email_err = send_to_kindle(path, title)
+    return {
+        "success": True,
+        "path": path,
+        "title": title,
+        "email_sent": email_ok,
+        "email_error": email_err,
+    }
 
 
 @app.post("/parse-html")
 def endpoint_parse_html(body: ParseHtmlRequest):
-    """Parse provided HTML (no fetch) → EPUB → save to output/ → return path."""
+    """Parse provided HTML (no fetch) → EPUB → save to output/ → send to Kindle → return path."""
     try:
         _, epub_bytes = create_epub_from_html(body.title, body.html_content)
     except ValueError as e:
@@ -288,4 +449,45 @@ def endpoint_parse_html(body: ParseHtmlRequest):
             status_code=500,
             detail=f"Internal error: {type(e).__name__}: {e}\n\n{traceback.format_exc()}",
         )
-    return {"success": True, "path": save_epub(epub_bytes, body.title), "title": body.title}
+    path = save_epub(epub_bytes, body.title)
+    email_ok, email_err = send_to_kindle(path, body.title)
+    return {
+        "success": True,
+        "path": path,
+        "title": body.title,
+        "email_sent": email_ok,
+        "email_error": email_err,
+    }
+
+
+@app.post("/test-send-epub")
+async def endpoint_test_send_epub(file: UploadFile = File(...)):
+    """
+    Upload a known-good EPUB file and send it to Kindle via the same SMTP path.
+    Use this to check whether E999 is caused by our generated EPUB or by SMTP/Amazon.
+    """
+    if not file.filename or not file.filename.lower().endswith(".epub"):
+        raise HTTPException(status_code=422, detail="Please upload an .epub file")
+    try:
+        raw = await file.read()
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to read file: {e}")
+    if not raw:
+        raise HTTPException(status_code=422, detail="File is empty")
+    fd, path = tempfile.mkstemp(suffix=".epub")
+    try:
+        os.write(fd, raw)
+        os.close(fd)
+        title = (file.filename or "Test EPUB").replace(".epub", "").replace(".EPUB", "")
+        email_ok, email_err = send_to_kindle(path, title)
+        return {
+            "success": True,
+            "filename": file.filename,
+            "email_sent": email_ok,
+            "email_error": email_err,
+        }
+    finally:
+        try:
+            os.unlink(path)
+        except OSError:
+            pass

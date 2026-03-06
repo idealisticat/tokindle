@@ -30,8 +30,22 @@ pip install -r requirements.txt
 Verify:
 
 ```bash
-python -c "import fastapi, uvicorn, bs4, ebooklib; print('OK')"
+python -c "import fastapi, uvicorn, bs4, ebooklib, PIL; print('OK')"
 ```
+
+---
+
+## Step 2b (optional): Send to Kindle
+
+If you want the server to email generated EPUBs to your Kindle:
+
+1. Copy the env template: `cp .env.example .env`
+2. Edit `.env` and set:
+   - `SMTP_SERVER=smtp.gmail.com`, `SMTP_PORT=587`
+   - `SENDER_EMAIL` = your Gmail address
+   - `SENDER_PASSWORD` = Gmail **App Password** (not your normal password; create under Google Account → Security → 2-Step Verification → App passwords)
+   - `KINDLE_EMAIL` = your Send-to-Kindle email (e.g. `you@kindle.com`)
+3. If these are missing or empty, the server still runs and saves EPUBs to `output/`, but API responses will have `email_sent: false` and an `email_error` message.
 
 ---
 
@@ -92,6 +106,7 @@ Use the new Mac’s LAN IP from Step 3. If the server gets a different IP later 
 - [ ] Clone repo and `cd tokindle`
 - [ ] `python3 -m venv venv && source venv/bin/activate`
 - [ ] `pip install -r requirements.txt`
+- [ ] (Optional) Copy `.env.example` to `.env` and set SMTP / `KINDLE_EMAIL` for Send to Kindle
 - [ ] Run: `uvicorn main:app --reload --host 0.0.0.0 --port 8000`
 - [ ] Note this Mac’s IP (e.g. `ipconfig getifaddr en0`)
 - [ ] Update Chrome Extension Backend URL to `http://IP:8000`
