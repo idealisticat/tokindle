@@ -64,6 +64,6 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - **扩展连不上**：确认后端已启动，Backend URL 为 `http://127.0.0.1:8000`（或当前机器 IP）。
 - **手机访问不了**：同一 Wi‑Fi、后端用 `--host 0.0.0.0`（Admin UI 里 Start 即为此配置）。
 - **422**：链接非微信文章或页面无正文容器，换一篇标准公众号文章。
-- **发 Kindle 失败**：看响应里 `email_error`；检查 .env、Gmail 应用专用密码、`KINDLE_EMAIL` 是否在亚马逊里已批准。
+- **发 Kindle 失败**：看响应里 `email_error`；检查 .env、SMTP 密码（Gmail 用应用专用密码，Outlook 用账户或应用密码）、`KINDLE_EMAIL` 是否在亚马逊里已批准。
 
 以上全部通过即表示 Phase 2（Chrome 扩展）与 Phase 3（iOS 快捷指令）验证完成。

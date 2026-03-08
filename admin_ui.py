@@ -230,9 +230,9 @@ def validate_feed_url(url: str) -> Tuple[bool, str]:
 # ---------------------------------------------------------------------------
 
 
-def check_google_smtp(server: str, port: str, sender: str,
-                      password: str) -> Tuple[bool, str]:
-    """Test Gmail SMTP login only (no email sent)."""
+def check_smtp_connection(server: str, port: str, sender: str,
+                          password: str) -> Tuple[bool, str]:
+    """Test SMTP login only (no email sent). Works with Gmail, Outlook, or any SMTP."""
     if not all([server, sender, password]):
         return False, "Missing SMTP server, sender email, or password."
     try:
@@ -242,7 +242,7 @@ def check_google_smtp(server: str, port: str, sender: str,
             s.starttls(context=ctx)
             s.ehlo()
             s.login(sender, password)
-        return True, "Gmail SMTP login successful. Credentials are valid."
+        return True, "SMTP login successful. Credentials are valid."
     except smtplib.SMTPAuthenticationError as exc:
         return False, f"Authentication failed: {exc}. Check your App Password."
     except Exception as exc:
@@ -351,7 +351,7 @@ _feeds_missing = not FEEDS_PATH.exists() or not load_feeds().get("feeds")
 if _env_missing or _feeds_missing:
     st.info(
         "**Welcome to TOKINDLE!** It looks like this is your first time. Follow these steps:\n\n"
-        "1. Go to the **Configuration** tab and fill in your Gmail SMTP and Kindle email, then **Save & Restart FastAPI**.\n"
+        "1. Go to the **Configuration** tab and fill in your SMTP and Kindle email, then **Save & Restart FastAPI**.\n"
         "2. Go to the **RSS Feeds** tab and add at least one RSS feed URL, then **Save & Restart Worker**.\n"
         "3. Use the **Testing** tab to verify your email credentials work.\n\n"
         "Alternatively, copy `.env.example` to `.env` and edit it manually."
@@ -570,7 +570,22 @@ with tab_rss:
         max_value=1440,
         value=feeds_data.get("interval_minutes", 60),
         step=5,
+        help="How often the RSS Worker fetches feeds. Applied after you click Apply interval.",
     )
+    if st.button("\u2705  Apply interval", key="btn_apply_interval"):
+        feeds_data["interval_minutes"] = int(interval)
+        feeds_data["feeds"] = feeds_list
+        save_feeds(feeds_data)
+        rss_up, _ = rss_worker_status()
+        if rss_up:
+            stop_rss_worker()
+            time.sleep(1)
+            start_rss_worker()
+            time.sleep(1)
+            st.success(f"Interval set to {interval} minutes and RSS Worker restarted.")
+        else:
+            st.success(f"Interval set to {interval} minutes. Start the RSS Worker for it to take effect.")
+        st.rerun()
 
     st.subheader("Current Feeds")
     if not feeds_list:
@@ -622,14 +637,15 @@ with tab_rss:
                     st.success(f"Added: {url}")
                     st.rerun()
 
-    if st.button("\U0001F4BE  Save & Restart Worker"):
-        feeds_data["interval_minutes"] = interval
+    if st.button("\U0001F4BE  Save feeds & Restart Worker"):
+        feeds_data["interval_minutes"] = int(interval)
+        feeds_data["feeds"] = feeds_list
         save_feeds(feeds_data)
         stop_rss_worker()
         time.sleep(1)
         start_rss_worker()
         time.sleep(1)
-        st.success("feeds.json saved and RSS Worker restarted.")
+        st.success("feeds.json saved (feeds + interval) and RSS Worker restarted.")
         st.rerun()
 
 # ===================== Tab 4 — Testing & Logs =========================
@@ -639,12 +655,12 @@ with tab_test:
     col_check, col_send = st.columns(2)
 
     with col_check:
-        st.subheader("\U0001F50C  Google SMTP Connection Check")
-        st.caption("Tests SMTP login to Gmail (no email sent). Verifies credentials only.")
-        if st.button("Check Gmail Connection", key="btn_smtp_check"):
+        st.subheader("\U0001F50C  Mail (SMTP) Connection Check")
+        st.caption("Tests SMTP login (Gmail, Outlook, or custom). No email sent.")
+        if st.button("Check Mail Connection", key="btn_smtp_check"):
             env = load_env()
-            with st.spinner("Connecting to Gmail SMTP..."):
-                ok, msg = check_google_smtp(
+            with st.spinner("Connecting to SMTP..."):
+                ok, msg = check_smtp_connection(
                     env.get("SMTP_SERVER", ""),
                     env.get("SMTP_PORT", "587"),
                     env.get("SENDER_EMAIL", ""),

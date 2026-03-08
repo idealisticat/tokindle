@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Usage: cd to project root, then run:  ./start.sh   or  bash start.sh
 set -e
 
 echo "=== TOKINDLE Quick Start ==="
@@ -24,9 +25,9 @@ fi
 source venv/bin/activate
 echo "[OK] venv activated."
 
-# Install / update dependencies
+# Install / update dependencies (use python3 -m pip so pip need not be on PATH)
 echo "[..] Installing dependencies..."
-pip install -q -r requirements.txt
+python3 -m pip install -q -r requirements.txt
 echo "[OK] Dependencies installed."
 
 # Create .env from example if missing

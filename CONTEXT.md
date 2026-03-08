@@ -167,7 +167,7 @@ POST /test-send-epub  → 上传 file → 临时文件 → send_to_kindle → JS
 - **Phase 3 — iOS 快捷指令**：剪贴板或询问输入得到链接，POST `{"url": "<链接>"}` 到 `http://<主机IP>:8000/parse-url`（同 Wi‑Fi），Method=POST，Content-Type=application/json。详细步骤见 `docs/SHORTCUT_IOS.md`、`docs/iOS_SHORTCUT_SETUP.md`。
 - **Phase 4 — Send to Kindle**：配置 `.env` 后，`/parse-url` 与 `/parse-html` 在保存 EPUB 后自动通过 Gmail SMTP 发往 Kindle；响应含 `email_sent`、`email_error`。EPUB 已按 Kindle 要求清洗，E999 已修复。可选：`POST /test-send-epub` 验证 SMTP。
 - **Phase 5 — RSS 自动化**：`rss_worker.py` 长驻进程读 `feeds.json`，定时拉 RSS 并 POST `/parse-url`；或使用 `scripts/rss_job.py` + cron。见 `docs/RSS_SETUP.md`。
-- **Admin UI**：`streamlit run admin_ui.py`（或 `./start.sh` 一键启动）。后端地址通过 `TOKINDLE_BACKEND_URL` 环境变量覆盖。侧边栏启停 FastAPI / RSS Worker（PID 文件），主区域：**Dashboard**（任务进度条，轮询 `/tasks`）、**Configuration**（邮箱提供商下拉 Gmail/Outlook/Custom + .env 编辑与保存并重启 FastAPI）、**RSS Feeds**（feeds.json 增删与校验）、**Testing & Logs**（Gmail/Outlook 连接检查、发测试邮件、日志查看）。首次使用缺 .env 或 feeds 时会显示引导说明。
+- **Admin UI**：`streamlit run admin_ui.py`（或 `./start.sh` 一键启动）。后端地址通过 `TOKINDLE_BACKEND_URL` 环境变量覆盖。侧边栏启停 FastAPI / RSS Worker（PID 文件），主区域：**Dashboard**（任务进度条，轮询 `/tasks`）、**Configuration**（邮箱提供商下拉 Gmail/Outlook/Custom + .env 编辑与保存并重启 FastAPI）、**RSS Feeds**（feeds.json 增删、**Check interval** 可修改后点「Apply interval」生效）、**Testing & Logs**（Mail/SMTP 连接检查、发测试邮件、日志查看）。首次使用缺 .env 或 feeds 时会显示引导说明。
 
 ---
 

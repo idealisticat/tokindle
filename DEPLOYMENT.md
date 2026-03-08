@@ -72,7 +72,7 @@ Then in the browser: use the sidebar to **Start** the FastAPI backend (and optio
 - **Dashboard**: live task progress for jobs triggered by the Chrome extension, iOS Shortcut, or RSS.
 - **Configuration**: edit `.env` and save + restart FastAPI.
 - **RSS Feeds**: manage `feeds.json` and restart the RSS Worker.
-- **Testing & Logs**: Gmail connection check, send test email, view logs.
+- **Testing & Logs**: Mail (SMTP) connection check (Gmail/Outlook/custom), send test email, view logs.
 
 **Option B — Backend only (e.g. for automation or headless)**
 

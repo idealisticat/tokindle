@@ -5,7 +5,7 @@ TOKINDLE is an automated toolchain that extracts, cleans, and converts WeChat pu
 
 ## 2. Core Architecture (Backend + Native SMTP)
 - **Core Backend**: A Python `FastAPI` service with in-memory task tracking. It fetches or accepts HTML, bypasses WeChat image anti-leeching, downloads images (with retry), and generates EPUB files with timestamped filenames. When SMTP is configured in `.env`, the backend sends each EPUB to Kindle via Gmail/Outlook SMTP. The API returns the path, email status, and `task_id` for progress tracking.
-- **Admin UI** (`streamlit run admin_ui.py`): Streamlit web dashboard for process management (FastAPI / RSS Worker start/stop via PID files), `.env` configuration with email provider dropdown (Gmail/Outlook/Custom), RSS feed management, live task progress, Gmail connection check, and test email. Reads `TOKINDLE_BACKEND_URL` from env for multi-machine setups.
+- **Admin UI** (`streamlit run admin_ui.py`): Streamlit web dashboard for process management (FastAPI / RSS Worker start/stop via PID files), `.env` configuration with email provider dropdown (Gmail/Outlook/Custom), RSS feed management (including check-interval with Apply button), live task progress, Mail (SMTP) connection check, and test email. Reads `TOKINDLE_BACKEND_URL` from env for multi-machine setups.
 - **Client 1 (iOS Shortcut)**: Sends a WeChat article URL to the backend.
 - **Client 2 (RSS Worker / Job)**: `rss_worker.py` (daemon) or `scripts/rss_job.py` (cron) fetches RSS feeds and sends URLs to the backend, with seen-URL deduplication (auto-truncated to 2000 entries).
 - **Client 3 (Chrome Extension)**: Extracts raw HTML DOM from the active browser tab and sends it to the backend via `POST /parse-html`.
