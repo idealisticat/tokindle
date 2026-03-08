@@ -10,6 +10,7 @@ output/
 # RSS automation (user-specific feeds and state)
 config/rss_feeds.txt
 config/rss_seen.txt
+feeds.json
 
 # Runtime logs (launchd, etc.)
 logs/
@@ -49,6 +50,9 @@ build/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# PID files
+*.pid
 
 # Misc
 *.log

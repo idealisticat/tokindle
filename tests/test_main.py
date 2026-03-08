@@ -1,13 +1,16 @@
 """
 TOKINDLE backend tests.
-All HTTP is mocked — no real network requests.
+All HTTP and SMTP are mocked — no real network requests, no real emails.
+EPUB output uses tmp_path so ./output/ stays clean.
 """
 
 import io
 import zipfile
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
+import requests
 from bs4 import BeautifulSoup
 from fastapi.testclient import TestClient
 
@@ -48,6 +51,23 @@ def _epub_chapter_text(epub_bytes: bytes) -> str:
     return z.read(name).decode("utf-8")
 
 
+@pytest.fixture(autouse=True)
+def _isolate_output(tmp_path, monkeypatch):
+    """Redirect OUTPUT_DIR to a temp directory so tests never write to ./output/."""
+    import main
+    monkeypatch.setattr(main, "OUTPUT_DIR", tmp_path / "output")
+
+
+@pytest.fixture(autouse=True)
+def _mock_smtp():
+    """Prevent all tests from sending real emails."""
+    with patch("main.smtplib.SMTP") as mock_smtp:
+        instance = MagicMock()
+        mock_smtp.return_value.__enter__ = MagicMock(return_value=instance)
+        mock_smtp.return_value.__exit__ = MagicMock(return_value=False)
+        yield mock_smtp
+
+
 # ---------------------------------------------------------------------------
 # GET /ping
 # ---------------------------------------------------------------------------
@@ -63,7 +83,7 @@ def test_ping():
 # ---------------------------------------------------------------------------
 
 def test_parse_url_success(sample_wechat_html):
-    """Returns JSON with success, path (.epub on disk), and title."""
+    """Returns JSON with success, path (.epub on disk), title, and task_id."""
     client = TestClient(app)
     with patch("main.requests.get", side_effect=_mock_get(sample_wechat_html)):
         r = client.post("/parse-url", json={"url": "https://mp.weixin.qq.com/s/abc"})
@@ -72,6 +92,7 @@ def test_parse_url_success(sample_wechat_html):
     assert data["success"] is True
     assert data["path"].endswith(".epub")
     assert data["title"] == "Test Article Title"
+    assert "task_id" in data
     with open(data["path"], "rb") as f:
         assert f.read(4) == b"PK\x03\x04"
 
@@ -105,7 +126,7 @@ def test_parse_url_no_content_div(sample_wechat_html_no_content):
 # ---------------------------------------------------------------------------
 
 def test_parse_html_success(sample_wechat_html):
-    """Returns JSON with success, path, and title; EPUB is valid."""
+    """Returns JSON with success, path, title, and task_id; EPUB is valid."""
     with patch("main.requests.get", side_effect=_mock_get("")):
         r = TestClient(app).post(
             "/parse-html",
@@ -116,6 +137,7 @@ def test_parse_html_success(sample_wechat_html):
     assert data["success"] is True
     assert data["title"] == "My Title"
     assert data["path"].endswith(".epub")
+    assert "task_id" in data
     with open(data["path"], "rb") as f:
         assert f.read(4) == b"PK\x03\x04"
 
@@ -128,7 +150,60 @@ def test_parse_html_plain_body():
             "/parse-html", json={"title": "Plain", "html_content": plain}
         )
     assert r.status_code == 200
-    assert r.json()["success"] is True
+    data = r.json()
+    assert data["success"] is True
+    assert "task_id" in data
+
+
+# ---------------------------------------------------------------------------
+# GET /tasks and GET /tasks/{task_id}
+# ---------------------------------------------------------------------------
+
+def test_tasks_list_after_parse(sample_wechat_html):
+    """After a successful /parse-url, GET /tasks returns the task."""
+    client = TestClient(app)
+    with patch("main.requests.get", side_effect=_mock_get(sample_wechat_html)):
+        r = client.post("/parse-url", json={"url": "https://mp.weixin.qq.com/s/tasks_test"})
+    task_id = r.json()["task_id"]
+
+    tasks_r = client.get("/tasks")
+    assert tasks_r.status_code == 200
+    tasks = tasks_r.json()["tasks"]
+    assert any(t["id"] == task_id for t in tasks)
+
+
+def test_task_by_id(sample_wechat_html):
+    """GET /tasks/{task_id} returns the completed task."""
+    client = TestClient(app)
+    with patch("main.requests.get", side_effect=_mock_get(sample_wechat_html)):
+        r = client.post("/parse-url", json={"url": "https://mp.weixin.qq.com/s/tid_test"})
+    task_id = r.json()["task_id"]
+
+    task_r = client.get(f"/tasks/{task_id}")
+    assert task_r.status_code == 200
+    task = task_r.json()
+    assert task["id"] == task_id
+    assert task["status"] == "completed"
+    assert task["source"] == "parse-url"
+
+
+def test_task_not_found():
+    """GET /tasks/{bad_id} returns 404."""
+    r = TestClient(app).get("/tasks/nonexistent")
+    assert r.status_code == 404
+
+
+def test_task_failed_on_error():
+    """A failed /parse-url still records a task with status 'failed'."""
+    client = TestClient(app)
+    with patch("main.requests.get", side_effect=requests.RequestException("boom")):
+        r = client.post("/parse-url", json={"url": "https://mp.weixin.qq.com/s/fail_test"})
+    assert r.status_code == 502
+
+    tasks_r = client.get("/tasks")
+    tasks = tasks_r.json()["tasks"]
+    failed = [t for t in tasks if t.get("detail", "").endswith("fail_test") and t["status"] == "failed"]
+    assert len(failed) >= 1
 
 
 # ---------------------------------------------------------------------------
@@ -222,9 +297,3 @@ def test_strip_hidden_styles_display_none():
 def test_strip_hidden_styles_no_style():
     soup = BeautifulSoup("<p>ok</p>", "html.parser")
     _strip_hidden_styles(soup.find("p"))  # should not raise
-
-
-# ---------------------------------------------------------------------------
-# import needed at module scope for the network-error test
-# ---------------------------------------------------------------------------
-import requests  # noqa: E402

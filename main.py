@@ -12,13 +12,16 @@ import re
 import smtplib
 import ssl
 import tempfile
+import threading
+import time
 import traceback
 import uuid
+from collections import OrderedDict
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -58,6 +61,72 @@ FETCH_TIMEOUT = (15, 60)  # (connect, read) seconds
 IMAGE_TIMEOUT = (10, 45)
 
 # ---------------------------------------------------------------------------
+# Task tracking (in-memory, thread-safe)
+# ---------------------------------------------------------------------------
+
+_tasks_lock = threading.Lock()
+_tasks: OrderedDict[str, dict] = OrderedDict()
+_MAX_TASKS = 200
+
+STEPS_PARSE_URL = [
+    "fetching_url", "parsing_html", "generating_epub",
+    "saving_file", "sending_email", "completed",
+]
+STEPS_PARSE_HTML = [
+    "parsing_html", "generating_epub",
+    "saving_file", "sending_email", "completed",
+]
+
+
+def _new_task(source: str, detail: str, steps: List[str]) -> str:
+    task_id = uuid.uuid4().hex[:8]
+    task = {
+        "id": task_id,
+        "source": source,
+        "detail": detail[:120],
+        "status": "running",
+        "current_step": steps[0],
+        "total_steps": len(steps),
+        "finished_steps": 0,
+        "steps_log": [],
+        "all_steps": list(steps),
+        "created_at": time.time(),
+        "completed_at": None,
+        "error": None,
+        "result": None,
+    }
+    with _tasks_lock:
+        _tasks[task_id] = task
+        while len(_tasks) > _MAX_TASKS:
+            _tasks.popitem(last=False)
+    return task_id
+
+
+def _task_step(task_id: str, step_name: str) -> None:
+    with _tasks_lock:
+        task = _tasks.get(task_id)
+        if not task:
+            return
+        task["steps_log"].append({"name": step_name, "ts": time.time()})
+        task["current_step"] = step_name
+        task["finished_steps"] = len(task["steps_log"])
+
+
+def _task_done(task_id: str, error: str = None, result: dict = None) -> None:
+    with _tasks_lock:
+        task = _tasks.get(task_id)
+        if not task:
+            return
+        task["status"] = "failed" if error else "completed"
+        task["error"] = error
+        task["result"] = result
+        task["completed_at"] = time.time()
+        if not error:
+            task["finished_steps"] = task["total_steps"]
+            task["current_step"] = "completed"
+
+
+# ---------------------------------------------------------------------------
 # Request / response models
 # ---------------------------------------------------------------------------
 
@@ -82,9 +151,10 @@ def _safe_filename(title: str) -> str:
 
 
 def save_epub(epub_bytes: bytes, title: str) -> str:
-    """Write EPUB to output/ and return its absolute path."""
+    """Write EPUB to output/ (timestamped to avoid overwriting) and return its absolute path."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    path = OUTPUT_DIR.resolve() / f"{_safe_filename(title)}.epub"
+    ts = time.strftime("%Y%m%d_%H%M%S")
+    path = OUTPUT_DIR.resolve() / f"{_safe_filename(title)}_{ts}.epub"
     path.write_bytes(epub_bytes)
     return str(path)
 
@@ -169,6 +239,17 @@ def download_image(url: str) -> bytes:
     )
     resp.raise_for_status()
     return resp.content
+
+
+def _download_with_retry(url: str, retries: int = 2) -> bytes:
+    """Download image with automatic retry on transient failures."""
+    for attempt in range(retries + 1):
+        try:
+            return download_image(url)
+        except Exception:
+            if attempt >= retries:
+                raise
+            time.sleep(1.5 * (attempt + 1))
 
 
 def _image_to_jpeg(raw_bytes: bytes) -> Optional[bytes]:
@@ -343,7 +424,7 @@ def build_epub(title: str, content: Tag) -> bytes:
             img.attrs.pop("data-src", None)
             continue
         try:
-            raw = download_image(image_url)
+            raw = _download_with_retry(image_url)
         except Exception:
             if img.get("data-src"):
                 img["src"] = image_url
@@ -415,49 +496,75 @@ def ping():
 @app.post("/parse-url")
 def endpoint_parse_url(body: ParseUrlRequest):
     """Fetch WeChat article → EPUB → save to output/ → send to Kindle → return path."""
+    tid = _new_task("parse-url", body.url, STEPS_PARSE_URL)
     try:
-        title, epub_bytes = create_epub_from_url(body.url)
+        _task_step(tid, "fetching_url")
+        raw_html = fetch_wechat_article(body.url)
+
+        _task_step(tid, "parsing_html")
+        title, content = parse_wechat_html(raw_html)
+
+        _task_step(tid, "generating_epub")
+        epub_bytes = build_epub(title, content)
+
+        _task_step(tid, "saving_file")
+        path = save_epub(epub_bytes, title)
+
+        _task_step(tid, "sending_email")
+        email_ok, email_err = send_to_kindle(path, title)
+
+        result = {
+            "success": True, "path": path, "title": title,
+            "email_sent": email_ok, "email_error": email_err, "task_id": tid,
+        }
+        _task_done(tid, result=result)
+        return result
     except requests.RequestException as e:
+        _task_done(tid, error=str(e))
         raise HTTPException(status_code=502, detail=f"Failed to fetch URL: {e}")
     except ValueError as e:
+        _task_done(tid, error=str(e))
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
+        _task_done(tid, error=str(e))
         raise HTTPException(
             status_code=500,
             detail=f"Internal error: {type(e).__name__}: {e}\n\n{traceback.format_exc()}",
         )
-    path = save_epub(epub_bytes, title)
-    email_ok, email_err = send_to_kindle(path, title)
-    return {
-        "success": True,
-        "path": path,
-        "title": title,
-        "email_sent": email_ok,
-        "email_error": email_err,
-    }
 
 
 @app.post("/parse-html")
 def endpoint_parse_html(body: ParseHtmlRequest):
     """Parse provided HTML (no fetch) → EPUB → save to output/ → send to Kindle → return path."""
+    tid = _new_task("parse-html", body.title, STEPS_PARSE_HTML)
     try:
+        _task_step(tid, "parsing_html")
         _, epub_bytes = create_epub_from_html(body.title, body.html_content)
+
+        _task_step(tid, "generating_epub")
+        # epub already built inside create_epub_from_html; step logged for UI clarity
+
+        _task_step(tid, "saving_file")
+        path = save_epub(epub_bytes, body.title)
+
+        _task_step(tid, "sending_email")
+        email_ok, email_err = send_to_kindle(path, body.title)
+
+        result = {
+            "success": True, "path": path, "title": body.title,
+            "email_sent": email_ok, "email_error": email_err, "task_id": tid,
+        }
+        _task_done(tid, result=result)
+        return result
     except ValueError as e:
+        _task_done(tid, error=str(e))
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
+        _task_done(tid, error=str(e))
         raise HTTPException(
             status_code=500,
             detail=f"Internal error: {type(e).__name__}: {e}\n\n{traceback.format_exc()}",
         )
-    path = save_epub(epub_bytes, body.title)
-    email_ok, email_err = send_to_kindle(path, body.title)
-    return {
-        "success": True,
-        "path": path,
-        "title": body.title,
-        "email_sent": email_ok,
-        "email_error": email_err,
-    }
 
 
 @app.post("/test-send-epub")
@@ -491,3 +598,25 @@ async def endpoint_test_send_epub(file: UploadFile = File(...)):
             os.unlink(path)
         except OSError:
             pass
+
+
+# ---------------------------------------------------------------------------
+# Task tracking endpoints (polled by admin UI for live progress)
+# ---------------------------------------------------------------------------
+
+
+@app.get("/tasks")
+def list_tasks(limit: int = 50):
+    """Return recent tasks, newest first."""
+    with _tasks_lock:
+        items = list(_tasks.values())
+    return {"tasks": list(reversed(items[-limit:]))}
+
+
+@app.get("/tasks/{task_id}")
+def get_task(task_id: str):
+    with _tasks_lock:
+        task = _tasks.get(task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    return task

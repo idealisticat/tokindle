@@ -48,10 +48,24 @@ def load_seen(state_path: Path) -> set[str]:
     return set(load_lines(state_path))
 
 
+_MAX_SEEN_LINES = 2000
+
+
 def append_seen(state_path: Path, url: str) -> None:
     state_path.parent.mkdir(parents=True, exist_ok=True)
     with open(state_path, "a", encoding="utf-8") as f:
         f.write(url.strip() + "\n")
+    _truncate_seen(state_path)
+
+
+def _truncate_seen(state_path: Path) -> None:
+    """Keep only the most recent _MAX_SEEN_LINES entries to prevent unbounded growth."""
+    try:
+        lines = state_path.read_text(encoding="utf-8").splitlines()
+        if len(lines) > _MAX_SEEN_LINES:
+            state_path.write_text("\n".join(lines[-_MAX_SEEN_LINES:]) + "\n", encoding="utf-8")
+    except OSError:
+        pass
 
 
 def get_entry_links(entry) -> list[str]:
