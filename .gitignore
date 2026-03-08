@@ -1,6 +1,29 @@
-# Python
+# Virtual environments
 venv/
 .venv/
+env/
+.envrc
+
+# Project output (generated EPUBs)
+output/
+
+# RSS automation (user-specific feeds and state)
+config/rss_feeds.txt
+config/rss_seen.txt
+
+# Runtime logs (launchd, etc.)
+logs/
+
+# Generated ebooks (do not commit)
+*.epub
+
+# Environment and secrets (SMTP, etc.)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -10,13 +33,11 @@ __pycache__/
 .eggs/
 dist/
 build/
-*.epub
 
-# Environment / secrets
-.env
-.env.local
-.env.*.local
-*.env
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
 
 # IDE / editor
 .idea/
@@ -24,17 +45,11 @@ build/
 *.swp
 *.swo
 
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Project output (generated EPUBs; RPA reads from here)
-output/
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Misc
 *.log
 .cache/
-.pytest_cache/
-.coverage
-htmlcov/

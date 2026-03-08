@@ -1,0 +1,4 @@
+# One RSS feed URL per line. Lines starting with # are ignored.
+# Example: WeChat public account RSS from a third-party aggregator
+# https://example.com/rss/wechat/some_account
+# Add your feed URLs below:
